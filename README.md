@@ -24,20 +24,20 @@ SNAPSHOT：快照版，可以稳定使用，且仍在继续改进版本。
 本次演示依赖 **Spring Boot 2.5.2**，创建三层 MAVEN 父子项目目录。
 
 ```txt
-template-parent				// 父项目
-├── template-common			// 通用模块
-│       └── pom.xml			// 通用模块依赖
+template-parent                     // 父项目
+├── template-common                 // 通用模块
+│       └── pom.xml                 // 通用模块依赖
 ├── template-modules		// 业务模块
-│       └── template-job	// 任务模块
-│       |       └── pom.xml	// 任务模块依赖
-│       └── template-log	// 日志模块
+│       └── template-job            // 任务模块
+│       |       └── pom.xml         // 任务模块依赖
+│       └── template-log            // 日志模块
 │       |       └── pom.xml	// 日志模块依赖
-│       └── pom.xml			// 业务模块依赖
-├── template-system			// 系统模块
-│       └── pom.xml			// 系统模块依赖
+│       └── pom.xml                 // 业务模块依赖
+├── template-system                 // 系统模块
+│       └── pom.xml                 // 系统模块依赖
 ├── template-test			// 测试模块
-│       └── pom.xml			// 测试模块依赖
-├── pom.xml					// 父项目依赖
+│       └── pom.xml                 // 测试模块依赖
+├── pom.xml                         // 父项目依赖
 ```
 
 
@@ -49,11 +49,11 @@ template-parent				// 父项目
 `File -> new -> project`，选 Maven，创建 maven 项目
 
 ```
-Groupld:				com.template
-Artifactld:				parent
-Version:				1.0-SNAPSHOT
+Groupld:                   com.template
+Artifactld:                parent
+Version:                   1.0-SNAPSHOT
 
-Project name:			template-parent
+Project name:              template-parent
 Project location:		G:\JavaProjects\template-parent
 ```
 
@@ -224,11 +224,11 @@ Project location:		G:\JavaProjects\template-parent
 `File -> new -> Module`，选 String Initializr，创建 springboot 项目
 
 ```
-Groupld:				com.template
-Artifactld:				system
-Version:				1.0-SNAPSHOT
+Groupld:                   com.template
+Artifactld:                system
+Version:                   1.0-SNAPSHOT
 
-Project name:			template-system
+Project name:              template-system
 Project location:		G:\JavaProjects\template-parent\template-system
 Module file location:	G:\JavaProjects\template-parent\template-system
 ```
