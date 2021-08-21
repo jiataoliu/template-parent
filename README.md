@@ -1,6 +1,6 @@
 # IDEA 创建 SpringBoot 多级 MAVEN 父子项目
 
-## 前言
+## 介绍
 
 官方网址：https://spring.io/projects/spring-boot#learn
 
@@ -40,6 +40,10 @@ template-parent                     // 父项目
 ├── pom.xml                         // 父项目依赖
 ```
 
+实现效果：
+template-parent 管理 template-common 以及所有的版本号
+template-common 管理除 template-system 以外的其他模块
+template-system 通过引入 template-common 调用其他模块
 
 
 ## 一、建立一级项目
@@ -58,6 +62,8 @@ Project location:          G:\JavaProjects\template-parent
 ```
 
 
+
+> template-parent -- pom.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -652,7 +658,7 @@ Module file location:      G:\JavaProjects\template-parent\template-modules\temp
     <!--将当前项目定义为 jar 项目-->
     <packaging>jar</packaging>
     <name>job</name>
-    <description>Demo project for Spring Boot</description>
+    <description>job project for Spring Boot</description>
 
     <!--子模块的 parent 要使用顶层的父模块-->
     <parent>
@@ -746,7 +752,7 @@ Module file location:      G:\JavaProjects\template-parent\template-modules\temp
     <!--将当前项目定义为 jar 项目-->
     <packaging>jar</packaging>
     <name>log</name>
-    <description>Demo project for Spring Boot</description>
+    <description>log project for Spring Boot</description>
 
     <!--子模块的 parent 要使用顶层的父模块-->
     <parent>
