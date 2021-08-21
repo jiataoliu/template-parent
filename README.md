@@ -27,15 +27,15 @@ SNAPSHOT：快照版，可以稳定使用，且仍在继续改进版本。
 template-parent                     // 父项目
 ├── template-common                 // 通用模块
 │       └── pom.xml                 // 通用模块依赖
-├── template-modules		// 业务模块
+├── template-modules                // 业务模块
 │       └── template-job            // 任务模块
 │       |       └── pom.xml         // 任务模块依赖
 │       └── template-log            // 日志模块
-│       |       └── pom.xml	// 日志模块依赖
+│       |       └── pom.xml         // 日志模块依赖
 │       └── pom.xml                 // 业务模块依赖
 ├── template-system                 // 系统模块
 │       └── pom.xml                 // 系统模块依赖
-├── template-test			// 测试模块
+├── template-test                   // 测试模块
 │       └── pom.xml                 // 测试模块依赖
 ├── pom.xml                         // 父项目依赖
 ```
@@ -54,7 +54,7 @@ Artifactld:                parent
 Version:                   1.0-SNAPSHOT
 
 Project name:              template-parent
-Project location:		G:\JavaProjects\template-parent
+Project location:          G:\JavaProjects\template-parent
 ```
 
 
@@ -229,8 +229,8 @@ Artifactld:                system
 Version:                   1.0-SNAPSHOT
 
 Project name:              template-system
-Project location:		G:\JavaProjects\template-parent\template-system
-Module file location:	G:\JavaProjects\template-parent\template-system
+Project location:          G:\JavaProjects\template-parent\template-system
+Module file location:      G:\JavaProjects\template-parent\template-system
 ```
 
 
@@ -320,13 +320,13 @@ Module file location:	G:\JavaProjects\template-parent\template-system
 `File -> new -> Module`，选 String Initializr，创建 springboot 项目
 
 ```
-Groupld:				com.template
-Artifactld:				common
-Version:				1.0-SNAPSHOT
+Groupld:                   com.template
+Artifactld:                common
+Version:                   1.0-SNAPSHOT
 
-Project name:			template-common
-Project location:		G:\JavaProjects\template-parent\template-common
-Module file location:	G:\JavaProjects\template-parent\template-common
+Project name:              template-common
+Project location:          G:\JavaProjects\template-parent\template-common
+Module file location:      G:\JavaProjects\template-parent\template-common
 ```
 
 
@@ -416,13 +416,13 @@ Module file location:	G:\JavaProjects\template-parent\template-common
 `File -> new -> Module`，选 String Initializr，创建 springboot 项目
 
 ```
-Groupld:				com.template
-Artifactld:				test
-Version:				1.0-SNAPSHOT
+Groupld:                   com.template
+Artifactld:                test
+Version:                   1.0-SNAPSHOT
 
-Project name:			template-test
-Project location:		G:\JavaProjects\template-parent\template-test
-Module file location:	G:\JavaProjects\template-parent\template-test
+Project name:              template-test
+Project location:          G:\JavaProjects\template-parent\template-test
+Module file location:      G:\JavaProjects\template-parent\template-test
 ```
 
 
@@ -512,13 +512,13 @@ Module file location:	G:\JavaProjects\template-parent\template-test
 `File -> new -> Module`，选 Maven，创建 maven 项目
 
 ```
-Groupld:				com.template
-Artifactld:				modules
-Version:				1.0-SNAPSHOT
+Groupld:                   com.template
+Artifactld:                modules
+Version:                   1.0-SNAPSHOT
 
-Project name:			template-modules
-Project location:		G:\JavaProjects\template-parent\template-modules
-Module file location:	G:\JavaProjects\template-parent\template-modules
+Project name:              template-modules
+Project location:          G:\JavaProjects\template-parent\template-modules
+Module file location:      G:\JavaProjects\template-parent\template-modules
 ```
 
   
@@ -626,13 +626,13 @@ Module file location:	G:\JavaProjects\template-parent\template-modules
 `File -> new -> Module`，选 String Initializr，创建 springboot 项目
 
 ```
-Groupld:				com.template
-Artifactld:				job
-Version:				1.0-SNAPSHOT
+Groupld:                   com.template
+Artifactld:                job
+Version:                   1.0-SNAPSHOT
 
-Project name:			template-job
-Project location:		G:\JavaProjects\template-parent\template-modules\template-job
-Module file location:	G:\JavaProjects\template-parent\template-modules\template-job
+Project name:              template-job
+Project location:          G:\JavaProjects\template-parent\template-modules\template-job
+Module file location:      G:\JavaProjects\template-parent\template-modules\template-job
 ```
 
 
@@ -720,13 +720,13 @@ Module file location:	G:\JavaProjects\template-parent\template-modules\template-
 `File -> new -> Module`，选 String Initializr，创建 springboot 项目
 
 ```
-Groupld:				com.template
-Artifactld:				log
-Version:				1.0-SNAPSHOT
+Groupld:                   com.template
+Artifactld:                log
+Version:                   1.0-SNAPSHOT
 
-Project name:			template-log
-Project location:		G:\JavaProjects\template-parent\template-modules\template-log
-Module file location:	G:\JavaProjects\template-parent\template-modules\template-log
+Project name:              template-log
+Project location:          G:\JavaProjects\template-parent\template-modules\template-log
+Module file location:      G:\JavaProjects\template-parent\template-modules\template-log
 ```
 
 
