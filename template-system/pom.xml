@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.template</groupId>
+    <artifactId>system</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--将当前项目定义为 jar 项目-->
+    <packaging>jar</packaging>
+    <name>system</name>
+    <description>system project for Spring Boot</description>
+
+    <!--子模块的 parent 要使用顶层的父模块-->
+    <parent>
+        <groupId>com.template</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+        <!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    </parent>
+
+    <!--properties 可删掉，会继承父模块的-->
+    <properties>
+        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+        <!--<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
+        <!--<java.version>1.8</java.version>-->
+    </properties>
+
+    <!--父项目通过 dependencyManagement 管理依赖 – 无法继承父项目依赖直接使用，子项目需手动引用依赖-->
+    <dependencies>
+        <!--SpringBoot的 web 依赖配置-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--自定义的通用模块-->
+        <dependency>
+            <groupId>com.template</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!--让多模块化拆分之后还能打成完整的可执行 jar 包-->
+    <build>
+        <finalName>system-demo</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.template.system.SystemApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.template</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--父模块打包类型必须为 pom-->
+    <packaging>pom</packaging>
+    <name>parent</name>
+    <description>parent project for Maven</description>
+
+    <!--在 parent 指明继承关系，给出被继承的父项目的具体信息-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!--在 properties 中统一管理项目依赖包的版本，更清晰-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <springboot.version>2.5.2</springboot.version>
+        <template.version>1.0-SNAPSHOT</template.version>
+    </properties>
+
+    <!--
+       父项目引用依赖
+       注：父项目依赖引用有两种方式
+
+       1、使用此方式进行依赖管理时，父项目相当于一个依赖发布工厂。
+           子项目需要哪些依赖，需要手动指定引入，无法继承父项目依赖直接使用
+           <dependencyManagement>
+               <dependencies>
+                   <dependency>
+                       <groupId>org.springframework.boot</groupId>
+                       <artifactId>spring-boot-starter-web</artifactId>
+                       <version>${springboot.version}</version>
+                   </dependency>
+               </dependencies>
+           </dependencyManagement>
+
+        2、使用此方式经行依赖管理时，子项目无需手动指定依赖引入，会自动继承父依赖直接使用。
+           <dependencies>
+               <dependency>
+                   <groupId>org.springframework.boot</groupId>
+                   <artifactId>spring-boot-starter-web</artifactId>
+                   <version>${springboot.version}</version>
+               </dependency>
+           </dependencies>
+    -->
+
+    <!--删除 spring-boot-starter 和 spring-boot-starter-test，
+        因为 parent 中继承的祖先中已经有了，并且一般 dependencyManagement 管理的依赖都要写版本号
+    -->
+    <dependencyManagement>
+        <dependencies>
+            <!--SpringBoot的 web 依赖配置-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${springboot.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--自定义的通用模块-->
+            <dependency>
+                <groupId>com.template</groupId>
+                <artifactId>common</artifactId>
+                <version>${template.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+    </dependencies>
+
+    <!--注册子项目 后面创建二级子项目后，需在父项目中注册-->
+    <modules>
+        <module>template-system</module>
+        <module>template-common</module>
+        <module>template-test</module>
+        <module>template-modules</module>
+    </modules>
+
+    <!--该插件作用是打一个可运行的包，必须要写在需要打包的项目里。这里的父模块不需要打包运行，所以删掉该插件-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--配置 Maven 项目的依赖远程仓库-->
+    <repositories>
+        <repository>
+            <!--远程仓库唯一标识符-->
+            <id>public</id>
+            <!--描述-->
+            <name>aliyun nexus</name>
+            <!--远程仓库 url-->
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <!--用于定位和排序构件的仓库布局类型-可以是 default（默认）或者 legacy（遗留）-->
+            <layout>default</layout>
+            <!--Maven 要不要从这个仓库下载 release 版本的构件-->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!--Maven 要不要从这个仓库下载 snapshot 版本的构件
+                禁止从公共仓库下载 snapshot 构件是推荐的做法，因为这些构件不稳定，且不受你控制，你应该避免使用。
+                当然，如果你想使用局域网内组织内部的仓库，你可以激活 snapshot 的支持。
+            -->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!--配置 Maven 项目的插件构件远程仓库，maven 命令需要的插件（比如clean、install 都是 maven 的插件）-->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
