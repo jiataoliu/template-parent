@@ -1,6 +1,6 @@
 # IDEA 创建 SpringBoot 多级 MAVEN 父子项目
 
-## 前言
+## 介绍
 
 官方网址：https://spring.io/projects/spring-boot#learn
 
@@ -10,11 +10,11 @@ Spring Boot的版本以数字表示。
 
 版本号介绍：
 Alpha：不建议使用，主要是以实现软件功能为主，通常只在软件开发者内部交流，Bug较多；
-Beta：该版本相对于α版已有了很大的改进，消除了严重的错误，但还是存在着一些缺陷，需要经过多次测试来进一步消除；
-GA：General Availability，正式版本，官方推荐使用此版本，在国外都是用GA来说明release版本；
+Beta：该版本相对于 α 版已有了很大的改进，消除了严重的错误，但还是存在着一些缺陷，需要经过多次测试来进一步消除；
+GA：General Availability，正式版本，官方推荐使用此版本，在国外都是用 GA 来说明 release 版本；
 M：又叫里程碑版本，表示该版本较之前版本有功能上的重大更新；
 PRE(不建议使用)：预览版，内部测试版，主要是给开发人员和测试人员测试和找BUG用的；
-Release：最终版本，Release不会以单词形式出现在软件封面上，取而代之的是符号®；
+Release：最终版本，Release 不会以单词形式出现在软件封面上，取而代之的是符号®；
 RC：该版本已经相当成熟了，基本上不存在导致错误的BUG，与即将发行的正式版相差无几；
 SNAPSHOT：快照版，可以稳定使用，且仍在继续改进版本。
 ```
@@ -58,6 +58,8 @@ Project location:          G:\JavaProjects\template-parent
 ```
 
 
+
+> template-parent -- pom.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -652,7 +654,7 @@ Module file location:      G:\JavaProjects\template-parent\template-modules\temp
     <!--将当前项目定义为 jar 项目-->
     <packaging>jar</packaging>
     <name>job</name>
-    <description>Demo project for Spring Boot</description>
+    <description>job project for Spring Boot</description>
 
     <!--子模块的 parent 要使用顶层的父模块-->
     <parent>
@@ -746,7 +748,7 @@ Module file location:      G:\JavaProjects\template-parent\template-modules\temp
     <!--将当前项目定义为 jar 项目-->
     <packaging>jar</packaging>
     <name>log</name>
-    <description>Demo project for Spring Boot</description>
+    <description>log project for Spring Boot</description>
 
     <!--子模块的 parent 要使用顶层的父模块-->
     <parent>
