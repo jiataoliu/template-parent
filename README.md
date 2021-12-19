@@ -40,6 +40,13 @@ template-parent                     // 父项目
 ├── pom.xml                         // 父项目依赖
 ```
 
+实现效果：
+
+template-parent 管理 template-common 以及所有的版本号；
+
+template-common 管理除 template-system 以外的其他模块；
+
+template-system 通过引入 template-common 调用其他模块。
 
 
 ## 一、建立一级项目
